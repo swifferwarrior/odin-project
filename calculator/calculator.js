@@ -34,3 +34,7 @@ function operate(x, a, b){
             text = "Err: Try again."
     }
 }
+
+window.addEventListener('keydown', function(e){
+console.log(e.keyCode)
+})
