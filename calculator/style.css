@@ -45,7 +45,7 @@ button{
     margin: auto;
     /* left: 7.5%; */
 }
-p, span, input {
+p, span, input, button {
     font-size: 2em;
 }
 

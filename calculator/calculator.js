@@ -16,6 +16,8 @@ function divide(a, b) {
 
 let x = "";
 
+//operate(mem, current, mathFx)
+
 function operate(x, a, b) {
     switch (x) {
         case plus:
@@ -55,8 +57,11 @@ clear.addEventListener('click', () => {
     
 })
 
-for (const key in digit) {
-    console.log(key.keyCode);
+for (i=0; i < digit.length; i++){
+    console.log(digit[i].innerText);
+    digit[i].addEventListener('click',()=>{
+        display.value += digit[i].innerText;
+    })
     // if (object.hasOwnProperty(key)) {
     //     const element = object[key];
         
