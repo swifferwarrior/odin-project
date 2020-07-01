@@ -57,13 +57,19 @@ clear.addEventListener('click', () => {
     
 })
 
-for (i=0; i < digit.length; i++){
-    console.log(digit[i].innerText);
-    digit[i].addEventListener('click',()=>{
-        display.value += digit[i].innerText;
-    })
-    // if (object.hasOwnProperty(key)) {
-    //     const element = object[key];
-        
-    // }
-}
+for (let i=0; i < digit.length; i++){
+    digit[i].addEventListener('click',buttonToDisplay(i));
+    }
+
+
+function buttonToDisplay(i){
+    return function(){
+        // alert(digit[i].innerHTML)
+        display.value += digit[i].innerHTML;
+    }
+} 
+//note: For each button to be in their own scope, the function was removed
+//from the previous loop so that each button creates their own scope
+
+
+
