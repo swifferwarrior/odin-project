@@ -95,11 +95,15 @@ mem
 
 document.getElementById('plu').addEventListener('click', () => {
     console.log("Adding " + mem + "+" + display.value);
+<<<<<<< HEAD
     press();
+=======
+>>>>>>> 9df07795bd236fd5b4f0d3c9fff04b17ad0cfab5
     display.value = mem;
     plugAndChug();
     // operate(Number(nextCommand),Number(mem),Number(display.value));
     nextCommand = 0;
+
 });
 
 document.getElementById('min').addEventListener('click', () => {
@@ -108,6 +112,7 @@ document.getElementById('min').addEventListener('click', () => {
     plugAndChug();
     // operate(Number(nextCommand), mem, display.value);
     nextCommand = 1;
+    display.value = mem;
 });
 
 document.getElementById('mul').addEventListener('click', () => {
@@ -116,6 +121,8 @@ document.getElementById('mul').addEventListener('click', () => {
     plugAndChug();
     // operate(2, mem, display.value);
     nextCommand = 2;
+    display.value = mem;
+
 });
 
 document.getElementById('div').addEventListener('click', () => {
@@ -124,6 +131,7 @@ document.getElementById('div').addEventListener('click', () => {
     plugAndChug();
     // operate(3, mem, display.value);
     nextCommand = 3;
+    display.value = mem;
 });
 
 document.getElementById('ent').addEventListener('click', () => {
