@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <header>
@@ -11,15 +14,18 @@
 <body>
     <main>
         <div id='calculator'>
-            <input type="text" id="display">
+            <div id="output">
+                <input type="text" id="display">
+                <div id="previous-operand"></div>
+            </div>
             <div id='buttons'>
                 <button class="op" id="clr" data-key="144">clear</button>
                 <button class="op" id="div" data-key="111">/</button>
                 <button class="op" id="mul" data-key="106">*</button>
                 <button class="op" id="min" data-key="109">-</button>
                 <button class="op" id="plu" data-key="107">+</button>
-                <button class="op" id="dec" data-key="97">.</button>
                 <button class="op" id="ent" data-key="13">enter</button>
+                <button class="dig" id="dec" data-key="97">.</button>
                 <button class="dig" id="b0" data-key="96">0</button>
                 <button class="dig" id="b1" data-key="97">1</button>
                 <button class="dig" id="b2" data-key="98">2</button>

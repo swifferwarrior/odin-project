@@ -1,6 +1,7 @@
 //TODO: Pressing operator button will store command for next turn
 //TODO:
 let digit = document.getElementsByClassName('dig');
+let operators = document.getElementsByClassName('op');
 let display = document.getElementById('display');
 let clear = document.getElementById('clr');
 let mem = 0;
@@ -22,7 +23,7 @@ function divide(a, b) {
     return a / b;
 }
 
-let x = "";
+// let x = "";
 
 //operate(mem, current, mathFx)
 
@@ -49,9 +50,9 @@ function operate(x, a, b) {
     }
 }
 
-window.addEventListener('keydown', function (e) {
-    console.log(e.keyCode)
-})
+// window.addEventListener('keydown', function (e) { //Tests inputs are being registered
+//     console.log(e.keyCode)
+// })
 
 
 // window.addEventListener('keydown', (e) => {
@@ -59,6 +60,7 @@ window.addEventListener('keydown', function (e) {
 // })
 
 clear.addEventListener('click', () => {
+    press();
     console.log('you pressed clear')
     mem = 0;
     display.value = "";
@@ -72,12 +74,20 @@ for (let i = 0; i < digit.length; i++) {
 
 function buttonToDisplay(i) {
     return function () {
+        press();
         // alert(digit[i].innerHTML)
         display.value += digit[i].innerHTML;
+        if(display.value == "58008"){
+            let giggle = new Audio('oh-giggle.mp3');
+            giggle.volume = 0.05;
+            giggle.play();
+        }
     }
 }
 //note: For each button to be in their own scope, the function was removed
 //from the previous loop so that each button creates their own scope
+
+
 function plugAndChug() {
     operate(Number(nextCommand), Number(mem), Number(display.value));
 };
@@ -85,6 +95,8 @@ mem
 
 document.getElementById('plu').addEventListener('click', () => {
     console.log("Adding " + mem + "+" + display.value);
+    press();
+    display.value = mem;
     plugAndChug();
     // operate(Number(nextCommand),Number(mem),Number(display.value));
     nextCommand = 0;
@@ -92,6 +104,7 @@ document.getElementById('plu').addEventListener('click', () => {
 
 document.getElementById('min').addEventListener('click', () => {
     console.log("Subtracting " + mem + "-" + display.value);
+    press();
     plugAndChug();
     // operate(Number(nextCommand), mem, display.value);
     nextCommand = 1;
@@ -99,6 +112,7 @@ document.getElementById('min').addEventListener('click', () => {
 
 document.getElementById('mul').addEventListener('click', () => {
     console.log("Multiplying " + mem + "*" + display.value);
+    press();
     plugAndChug();
     // operate(2, mem, display.value);
     nextCommand = 2;
@@ -106,6 +120,7 @@ document.getElementById('mul').addEventListener('click', () => {
 
 document.getElementById('div').addEventListener('click', () => {
     console.log("Dividing " + mem + "/" + display.value);
+    press();
     plugAndChug();
     // operate(3, mem, display.value);
     nextCommand = 3;
@@ -113,9 +128,29 @@ document.getElementById('div').addEventListener('click', () => {
 
 document.getElementById('ent').addEventListener('click', () => {
     console.log("Adding " + mem + "+" + display.value);
+    press();
     plugAndChug();
     // operate(Number(nextCommand), mem, display.value);
 });
+
+// document.getElementById('buttons').addEventListener('click', press());
+
+let calcButtons = document.getElementsByName('button');
+
+for(const butt in calcButtons){
+    addClickListener(butt);
+}
+
+// function addClickListener(b){
+//     b.addEventListener('click', press());
+// }
+
+function press() {
+    // this.addEventListener
+    let audio = new Audio('button-press.mp3');
+    audio.volume = 0.05;
+    audio.play();
+};
 
 
 
